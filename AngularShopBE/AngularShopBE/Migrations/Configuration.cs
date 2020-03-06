@@ -17,15 +17,15 @@ namespace AngularShopBE.Migrations
 
         protected override void Seed(AngularShopBE.Models.ApplicationDbContext context)
         {
-            context.Products.AddOrUpdate(x => x.Id,
-                new Product { Name = "Rice", Category = "Grocery", CreatedDate = "1/21/2020" },
-                new Product { Name = "Onion", Category = "Grocery", CreatedDate = "1/21/2020" },
-                new Product { Name = "Beef", Category = "Grocery", CreatedDate = "1/21/2020" },
-                new Product { Name = "Chicken", Category = "Grocery", CreatedDate = "1/21/2020" },
-                new Product { Name = "Paper", Category = "Stationary", CreatedDate = "1/21/2020" },
-                new Product { Name = "Pencil", Category = "Stationary", CreatedDate = "1/21/2020" },
-                new Product { Name = "Sharpner", Category = "Stationary", CreatedDate = "1/21/2020" }
-             );
+            //context.Products.AddOrUpdate(x => x.Id,
+            //    new Product { Name = "Rice", Category = "Grocery", CreatedDate = "1/21/2020" },
+            //    new Product { Name = "Onion", Category = "Grocery", CreatedDate = "1/21/2020" },
+            //    new Product { Name = "Beef", Category = "Grocery", CreatedDate = "1/21/2020" },
+            //    new Product { Name = "Chicken", Category = "Grocery", CreatedDate = "1/21/2020" },
+            //    new Product { Name = "Paper", Category = "Stationary", CreatedDate = "1/21/2020" },
+            //    new Product { Name = "Pencil", Category = "Stationary", CreatedDate = "1/21/2020" },
+            //    new Product { Name = "Sharpner", Category = "Stationary", CreatedDate = "1/21/2020" }
+            // );
         }
     }
 }

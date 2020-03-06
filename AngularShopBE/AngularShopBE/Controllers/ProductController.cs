@@ -32,7 +32,7 @@ namespace AngularShopBE.Controllers
             return Ok();
         }
 
-        [HttpPost]
+        [HttpPut]
         [Route("api/EditProduct")]
         public IHttpActionResult EditProduct(Product product)
         {
