@@ -61,7 +61,7 @@ export class ProductListComponent implements OnInit {
         disableClose: true,
         width: '500px',
         data: {
-          header: 'Add New Product',
+          header: 'Edit Product',
           confirmationStatus: false,
           name: product.Name,
           category: product.Category
