@@ -31,7 +31,7 @@ namespace AngularShopBE.Controllers
             _context.Products.Add(product);
             _context.SaveChanges();
 
-            return Ok();
+            return Ok(product);
         }
 
         [HttpPut]
