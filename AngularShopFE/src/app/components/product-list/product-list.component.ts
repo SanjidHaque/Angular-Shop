@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Data} from '@angular/router';
+import {MatDialog, MatSnackBar} from '@angular/material';
 
 import {Product} from '../../models/product.model';
 import {ProductDataStorageService} from '../../services/product-data-storage.service';
-import {MatDialog, MatSnackBar} from '@angular/material';
 import {AddUpdateDialogComponent} from '../../dialogs/add-update-dialog/add-update-dialog.component';
 
 @Component({
@@ -42,18 +42,60 @@ export class ProductListComponent implements OnInit {
 
           this.productDataStorageService.addProduct(result.product)
             .subscribe((product: Product) => {
+
               this.products.push(product);
               this.snackBar.open('New Product Added!', '', {
-                duration: 5000,
+                duration: 10000,
                 horizontalPosition: 'right'
               });
+
             });
         }
     });
   }
 
-  editProduct() {}
+  editProduct(product: Product) {
+    this.matDialog.open(AddUpdateDialogComponent,
+      {
+        hasBackdrop: true,
+        disableClose: true,
+        width: '500px',
+        data: {
+          header: 'Add New Product',
+          confirmationStatus: false,
+          name: product.Name,
+          category: product.Category
+        }
+      }).afterClosed().subscribe((result: any) => {
 
-  deleteProduct() {}
+      if (result.confirmationStatus) {
+
+        this.productDataStorageService.editProduct(result.product)
+          .subscribe((response: any) => {
+
+            product.Name = result.product.Name;
+            product.Category = result.product.Category;
+            this.snackBar.open('Product updated!', '', {
+              duration: 5000,
+              horizontalPosition: 'right'
+            });
+
+          });
+      }
+    });
+  }
+
+  deleteProduct(productId: number, index: number) {
+    this.productDataStorageService.deleteProduct(productId)
+      .subscribe((response: any) => {
+
+        this.products.splice(index, 1);
+        this.snackBar.open('Product deleted!', '', {
+          duration: 5000,
+          horizontalPosition: 'right'
+        });
+
+      });
+  }
 }
 

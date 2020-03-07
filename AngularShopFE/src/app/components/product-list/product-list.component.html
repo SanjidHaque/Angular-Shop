@@ -34,7 +34,8 @@
 
     <ng-template #productExists>
 
-      <div class="row" style="padding-top: 30px">
+      <div class="row" style="padding-top: 30px"
+      >
         <div class="offset-xl-1 col-xl-10"
              style="padding: 10px; border-radius: 4px">
 
@@ -83,11 +84,15 @@
             </div>
 
             <div class="col-xl-1">
-              <button mat-stroked-button>Edit</button>
+              <button
+                (click)="editProduct(product)"
+                mat-stroked-button>Edit</button>
             </div>
 
             <div class="col-xl-1">
-              <button mat-stroked-button color="warn">Delete</button>
+              <button
+                (click)="deleteProduct(product.Id, i)"
+                mat-stroked-button color="warn">Delete</button>
             </div>
 
           </div>
